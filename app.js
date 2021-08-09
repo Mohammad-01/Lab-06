@@ -1,7 +1,7 @@
 "use strict"
 
 let seattle = [];
-let openinghours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm']
+let openinghours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',"        Total"]
 
 let con = document.getElementById('con');
 let tableEl = document.createElement('table');
@@ -29,11 +29,23 @@ Location.prototype.render = function () {
     tre1.appendChild(tdEl1);
     tdEl1.textContent = this.LocationName;
     
-    for (let b = 0; b < 14 ; b++){
+    for (let b = 0; b < 14; b++){
     let tdEl5 = document.createElement('td');
     tre1.appendChild(tdEl5);
     tdEl5.textContent = this.cockiesPerHour[b];
     }
+
+    for(let r = 0; r < openinghours.length; r++){
+
+        let tdEl3 = document.createElement('td')
+        tre1.appendChild(tdEl3)
+        tdEl3.textContent = this.AvgCookie[r]
+    }
+
+    let tdEl2 = document.createElement('td')
+    tre1.appendChild(tdEl2)
+    tdEl2.textContent = this.Total
+
    // console.log(this.cockiesPerHour);
 }
 
@@ -42,13 +54,12 @@ Location.prototype.render = function () {
     //*********************************** */
     Location.prototype.Randomm = function () {
 
-        for (let i = 0 ; i < 14 ; i++ ){
+        for (let i = 0 ; i < openinghours.length ; i++ ){
 
             let value = getRandomInt(this.min,this.max);
-    
             this.cockiesPerHour.push( value * this.AvgCookie);
             this.Total += this.cockiesPerHour[i];
-            console.log(value);
+            
         } 
       
     
@@ -86,8 +97,36 @@ Location.prototype.render = function () {
     let Paris = new Location ('Paris',20,38,2.3);
     let Lima = new Location ('Lima',2,16,4.6);
 
+    function createTableFooter() {
+
+        let trEl = document.createElement('tr');
+        tableEl.appendChild(trEl);
+      
+        let tdEl1 = document.createElement('td');
+        trEl.appendChild(tdEl1);
+        tdEl1.textContent = 'Totals';
+      
+        let totalhour = 0;
+        for (let i = 0; i < openinghours.length; i++) {
+          let total = 0;
+          for (let j = 0; j < seattle.length; j++) {
+            total += seattle[j].cockiesPerHour[i];
+      
+          }
+          totalhour += total;
+          let tdEl2 = document.createElement('td');
+          trEl.appendChild(tdEl2);
+          tdEl2.textContent = total;
+      
+        }
+        let tdEl3 = document.createElement('td');
+        trEl.appendChild(tdEl3);
+        tdEl3.textContent =  totalhour;
+      
+      }
    
     createTableHeader();
+    
     seattel.Randomm();
     seattel.render();
 
@@ -102,9 +141,5 @@ Location.prototype.render = function () {
 
     Lima.Randomm();
     Lima.render();
-
-
-  
-
-  
-
+    
+    createTableFooter();
