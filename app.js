@@ -97,31 +97,31 @@ Location.prototype.render = function () {
     let Paris = new Location ('Paris',20,38,2.3);
     let Lima = new Location ('Lima',2,16,4.6);
 
-    function createTableFooter() {
+    function Total2() {
 
-        let trEl = document.createElement('tr');
-        tableEl.appendChild(trEl);
+        let TRE = document.createElement('tr');
+        tableEl.appendChild(TRE);
       
-        let tdEl1 = document.createElement('td');
-        trEl.appendChild(tdEl1);
-        tdEl1.textContent = 'Totals';
+        let td1 = document.createElement('td');
+        TRE.appendChild(td1);
+        td1.textContent = 'Total';
       
-        let totalhour = 0;
-        for (let i = 0; i < openinghours.length; i++) {
-          let total = 0;
-          for (let j = 0; j < seattle.length; j++) {
-            total += seattle[j].cockiesPerHour[i];
+        let TH = 0;
+        for (let i1 = 0; i1 < openinghours.length; i1++) {
+          let TOTal = 0;
+          for (let c2 = 0; c2 < seattle.length; c2++) {
+            TOTal += seattle[c2].cockiesPerHour[i1];
       
           }
-          totalhour += total;
-          let tdEl2 = document.createElement('td');
-          trEl.appendChild(tdEl2);
-          tdEl2.textContent = total;
+          TH += TOTal;
+          let td2 = document.createElement('td');
+          TRE.appendChild(td2);
+          td2.textContent = TOTal;
       
         }
-        let tdEl3 = document.createElement('td');
-        trEl.appendChild(tdEl3);
-        tdEl3.textContent =  totalhour;
+        let td3 = document.createElement('td');
+        TRE.appendChild(td3);
+        td3.textContent =  TH;
       
       }
    
@@ -142,4 +142,4 @@ Location.prototype.render = function () {
     Lima.Randomm();
     Lima.render();
     
-    createTableFooter();
+    Total2();
