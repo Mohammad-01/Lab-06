@@ -51,7 +51,7 @@ let Seattle = {
     Seattle.GitCockiePH();
     Seattle.render();
     console.log(Seattle);
-
+/*
 
 let Tokyo = {
 
@@ -258,7 +258,7 @@ let Lima = {
     Lima.GitCockiePH();
     Lima.render();
 
-
+*/
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
