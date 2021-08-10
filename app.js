@@ -5,7 +5,7 @@ let openinghours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3p
 
 let con = document.getElementById('con');
 let tableEl = document.createElement('table');
-con.append(tableEl);
+con.appendChild(tableEl);
 
 function Location (LocationName,min,max,AvgCookie){
 
@@ -142,10 +142,15 @@ Location.prototype.render = function () {
     Lima.Randomm();
     Lima.render();
     
-<<<<<<< HEAD
+
     Total2();
-=======
+
     createTableFooter();
+
+
+
+   
+    /*
 
 let Seattle = {
 
@@ -412,5 +417,4 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 
   }
-
->>>>>>> 0c34d88921613b8ece90fa71546f2e3c4ffda9f5
+   */
