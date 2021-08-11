@@ -17,7 +17,7 @@ let Seattle = {
 
         for (let i = 0 ; i < this.openinghours.length ; i++ ){
         
-            this.CockiesPerHour.push(getRandomInt(this.min,this.max) * this.AvgCookie)
+            this.CockiesPerHour.push(Math.ceil(getRandomInt(this.min,this.max) * this.AvgCookie))
             this.Total += this.CockiesPerHour[i];
             
         }
@@ -50,15 +50,14 @@ let Seattle = {
     
     Seattle.GitCockiePH();
     Seattle.render();
-    console.log(Seattle);
-/*
+ 
 
 let Tokyo = {
 
     min : "3" ,
     max : "24" ,
     AvgCookie : "1.2",
-    Total = 0 ,
+    Total : 0 ,
     openinghours : ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'],
 
     CoustemrsPerHour : [] ,
@@ -69,7 +68,7 @@ let Tokyo = {
 
         for (let i = 0 ; i < this.openinghours.length ; i++ ){
         
-            this.CockiesPerHour.push(getRandomInt(this.min,this.max) * this.AvgCookie)
+            this.CockiesPerHour.push(Math.ceil(getRandomInt(this.min,this.max) * this.AvgCookie))
             this.Total += this.CockiesPerHour[i];
             
         }
@@ -102,15 +101,14 @@ let Tokyo = {
     
     Tokyo.GitCockiePH();
     Tokyo.render();
-    console.log(Tokyo);
-
+   
 
 let Dubai = {
 
     min : "11" ,
     max : "38" ,
     AvgCookie : "3.7",
-    Total = 0 ,
+    Total : 0 ,
     openinghours : ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'],
 
     CoustemrsPerHour : [] ,
@@ -121,7 +119,7 @@ let Dubai = {
 
         for (let i = 0 ; i < this.openinghours.length ; i++ ){
         
-            this.CockiesPerHour.push(getRandomInt(this.min,this.max) * this.AvgCookie)
+            this.CockiesPerHour.push(Math.ceil(getRandomInt(this.min,this.max) * this.AvgCookie))
             this.Total += this.CockiesPerHour[i];
             
         }
@@ -155,14 +153,12 @@ let Dubai = {
     Dubai.GitCockiePH();
     Dubai.render();
 
-    
-
 let Paris = {
 
     min : "20" ,
     max : "38" ,
     AvgCookie : "2.3",
-    Total = 0 ,
+    Total : 0 ,
     openinghours : ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'],
 
     CoustemrsPerHour : [] ,
@@ -173,7 +169,7 @@ let Paris = {
 
         for (let i = 0 ; i < this.openinghours.length ; i++ ){
         
-            this.CockiesPerHour.push(getRandomInt(this.min,this.max) * this.AvgCookie)
+            this.CockiesPerHour.push(Math.ceil(getRandomInt(this.min,this.max) * this.AvgCookie))
             this.Total += this.CockiesPerHour[i];
             
         }
@@ -185,7 +181,7 @@ let Paris = {
         let con = document.getElementById('con');
         let h1el = document.createElement('hi');
         con.append(h1el);
-        h1el.textContent= 'Seattle';
+        h1el.textContent= 'Paris';
         let ul = document.createElement('ul');
         con.append(ul);
         for (let j = 0; j <this.openinghours.length; j++){
@@ -212,7 +208,7 @@ let Lima = {
     min : "2" ,
     max : "16" ,
     AvgCookie : "4.6", 
-    Total = 0 , 
+    Total : 0 , 
 
     openinghours : ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'],
 
@@ -224,7 +220,7 @@ let Lima = {
 
         for (let i = 0 ; i < this.openinghours.length ; i++ ){
         
-            this.CockiesPerHour.push(getRandomInt(this.min,this.max) * this.AvgCookie)
+            this.CockiesPerHour.push(Math.ceil(getRandomInt(this.min,this.max) * this.AvgCookie))
             this.Total += this.CockiesPerHour[i];
             
         }
@@ -236,7 +232,7 @@ let Lima = {
         let con = document.getElementById('con');
         let h1el = document.createElement('hi');
         con.append(h1el);
-        h1el.textContent= 'Seattle';
+        h1el.textContent= 'Lima';
         let ul = document.createElement('ul');
         con.append(ul);
         for (let j = 0; j <this.openinghours.length; j++){
@@ -258,7 +254,7 @@ let Lima = {
     Lima.GitCockiePH();
     Lima.render();
 
-*/
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
