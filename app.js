@@ -1,7 +1,7 @@
 "use strict"
 
 let seattle = [];
-let openinghours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',"        Total"]
+let openinghours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',`               Total`]
 
 let con = document.getElementById('con');
 let tableEl = document.createElement('table');
@@ -35,12 +35,12 @@ Location.prototype.render = function () {
     tdEl5.textContent = this.cockiesPerHour[b];
     }
 
-    for(let r = 0; r < openinghours.length; r++){
+    /*for(let r = 0; r < openinghours.length; r++){
 
         let tdEl3 = document.createElement('td')
         tre1.appendChild(tdEl3)
         tdEl3.textContent = this.AvgCookie[r]
-    }
+    }*/
 
     let tdEl2 = document.createElement('td')
     tre1.appendChild(tdEl2)
@@ -57,7 +57,7 @@ Location.prototype.render = function () {
         for (let i = 0 ; i < openinghours.length ; i++ ){
 
             let value = getRandomInt(this.min,this.max);
-            this.cockiesPerHour.push( value * this.AvgCookie);
+            this.cockiesPerHour.push( Math.ceil (value * this.AvgCookie));
             this.Total += this.cockiesPerHour[i];
             
         } 
@@ -107,9 +107,9 @@ Location.prototype.render = function () {
         td1.textContent = 'Total';
       
         let TH = 0;
-        for (let i1 = 0; i1 < openinghours.length; i1++) {
+        for (let i1 = 1; i1 < openinghours.length; i1++) {
           let TOTal = 0;
-          for (let c2 = 0; c2 < seattle.length; c2++) {
+          for (let c2 = 1; c2 < seattle.length; c2++) {
             TOTal += seattle[c2].cockiesPerHour[i1];
       
           }
@@ -125,6 +125,8 @@ Location.prototype.render = function () {
       
       }
    
+   
+     
     createTableHeader();
     
     seattel.Randomm();
@@ -142,10 +144,29 @@ Location.prototype.render = function () {
     Lima.Randomm();
     Lima.render();
     
+     //***************************************
+     let myForm = document.getElementById('myForm');
 
-    Total2();
+     myForm.addEventListener('submit', addLocation)
+     function addLocation(event){
+         event.preventDefault();
+         let LocationName = event.target.Location.value;
+         let min = event.target.MinimumCustomersPH.value;
+         let max = event.target.MaximumCustomersPH.value;
+         let AvgCookie = event.target.AvgCookie.value;
+         /*console.log(Location);
+         console.log(MinimumCustomersPH);
+         console.log(MaximumCustomersPH);
+         console.log(AvgCookie);*/
+         let newLocation = new Location (LocationName,min,max,AvgCookie);
+         newLocation.Randomm();
+         newLocation.render();
+         Total2();
+    
+     } 
+     
+     //************************************** */
 
-    createTableFooter();
 
 
 
